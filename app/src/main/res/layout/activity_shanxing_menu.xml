@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tv1"
+                android:background="@color/grey"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:text="    春江花月何时了，往事知多少，小楼昨夜又东风，故国不堪回首月明中。"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+
+            <TextView
+                android:background="@color/grey"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:text="    春江花月何时了，往事知多少，小楼昨夜又东风，故国不堪回首月明中。"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"/>
+
+            <TextView
+                android:background="@color/grey"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:text="    春江花月何时了，往事知多少，小楼昨夜又东风，故国不堪回首月明中。"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"/>
+
+            <TextView
+                android:background="@color/grey"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:text="    春江花月何时了，往事知多少，小楼昨夜又东风，故国不堪回首月明中。"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"/>
+
+            <TextView
+                android:background="@color/grey"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:text="    春江花月何时了，往事知多少，小楼昨夜又东风，故国不堪回首月明中。"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"/>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/ll_bg_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+    </LinearLayout>
+
+    <com.tl.androidnativedemo.navigation71.menu.ShanXingMenuView
+        android:id="@+id/sh_menu"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

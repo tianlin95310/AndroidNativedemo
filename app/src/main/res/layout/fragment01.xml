@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/f01_fab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="实现可折叠的菜单栏"
+                    />
+
+                <Button
+                    android:id="@+id/f01_fab3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="实现菜单栏上拉隐藏，下拉立即显示"
+                    />
+
+                <Button
+                    android:id="@+id/f01_fab4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="AppBarLayout实现任意控件顶部悬浮"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:textSize="12sp"
+                    android:id="@+id/f01_fab6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="通过事件的分发实现列表联动（类似CoordinatorLayout的思想）"
+                    />
+
+                <Button
+                    android:id="@+id/f01_fab7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="使用API方法监听实现列表联动"
+                    />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/f01_fab5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="关于自定义Behavior的研究"
+                />
+
+            <Button
+                android:layout_marginTop="30dp"
+                android:id="@+id/f01_fab8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="关于贝塞尔曲线的研究"
+                />
+
+            <Button
+                android:layout_marginTop="30dp"
+                android:id="@+id/f01_fab9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="关于高斯模糊的研究"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

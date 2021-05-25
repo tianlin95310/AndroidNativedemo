@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:id="@+id/f6_ll"
+              android:layout_height="match_parent">
+
+    <Button
+        android:text="Theme.AppCompat.Light.Dialog.Alert提示对话框"
+        android:id="@+id/f6_bt1a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="ThemeOverlay.AppCompat.Dialog.Alert提示对话框"
+        android:id="@+id/f6_bt1b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="Theme.AppCompat.DayNight.Dialog.Alert提示对话框"
+        android:id="@+id/f6_bt1c"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="打开日期对话框"
+        android:id="@+id/f6_bt2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+    android:text="打开时间对话框"
+    android:id="@+id/f6_bt3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="PopWindow对话框"
+        android:id="@+id/f22_bt4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="可以移动的弹出框"
+        android:id="@+id/f22_bt5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

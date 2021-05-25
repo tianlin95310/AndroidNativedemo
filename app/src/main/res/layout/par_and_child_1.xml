@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/ll_not_add"
+        android:background="@drawable/ripple"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--touch和click都没有，所以事件会上传到父控件-->
+            <TextView
+                android:id="@+id/tv_not_add_1"
+                android:background="@color/colorPrimaryDark"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:textColor="@color/white"
+                android:text="点我（不加事件）"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+            <!--click消耗了事件-->
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:background="@color/colorPrimaryDark"
+                android:id="@+id/tv_not_add_2"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:text="点我（加事件）"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--不管怎么设置button都是可以点击的，因为android:descendantFocusability="blocksDescendants"影响的是焦点
+            跟事件的传递没有关系-->
+            <Button
+                android:id="@+id/tv_not_add_3"
+                android:text="点我"
+                android:layout_weight="0.6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

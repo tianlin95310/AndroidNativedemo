@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/bt_big1"
+                    android:text="补间动画放大"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:id="@+id/bt_small1"
+                    android:text="补间动画缩小(gone掉)"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_text1"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"
+                android:text="我是补间动画\n不gone掉我的话消失后仍然可以点击
+gone掉就不能继续点击了"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/bt_big2"
+                    android:text="补间动画放大"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:id="@+id/bt_small2"
+                    android:text="补间动画缩小(不gone掉)"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_text2"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"
+                android:text="我是补间动画\n不gone掉我的话消失后仍然可以点击"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/bt_big3"
+                    android:text="ViewCompat动画平移"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:id="@+id/bt_small3"
+                    android:text="ViewCompat动画还原"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_text3"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"
+                android:text="我是ViewCompat提供的动画\n我是属性动画，动画发生后，我的位置也会发生变化\n点击之前的位置
+不会触发事件\n但是缩小放大无效"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/bt_big4"
+                    android:text="ViewCompat动画放大"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:id="@+id/bt_small4"
+                    android:text="ViewCompat动画缩小"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_text4"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"
+                android:text="我是ViewCompat提供的动画\n我是属性动画，动画发生后，我的位置也会发生变化\n点击之前的位置
+不会触发事件\n但是缩小放大无效"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

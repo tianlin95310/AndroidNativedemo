@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/holo_blue_bright"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="Realm数据库相关测试"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/main_thread_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="主线程保存数据"
+                android:textSize="12sp"/>
+
+            <Button
+                android:id="@+id/io_thread_read"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="开启字线程不断读取"
+                android:textSize="12sp"/>
+
+            <Button
+                android:id="@+id/io_thread_read_once"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="开启子线程读取一次"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/test_not_copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试非copy对象的valid(close)"
+                android:textSize="12sp"/>
+
+            <Button
+                android:id="@+id/test_not_copy2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试非copy对象的valid(null)"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/read_pro_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="读取61独立进程的服务保存的数据"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt_diff_thread_async"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="在不同线程里通过线程切换进行读写操作"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:gravity="center"
+        android:text="我是其他的一些东西"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="500dp">
+
+        <com.tl.androidnativedemo.navigation71.pullrefresh.TLRefreshRecyclerView
+            android:id="@+id/recycler_view"
+            app:layout_behavior="com.tl.androidnativedemo.navigation71.pullrefresh.TLRefreshBehavior"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </com.tl.androidnativedemo.navigation71.pullrefresh.TLRefreshRecyclerView>
+
+        <LinearLayout
+            android:id="@+id/ll_refresh"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="#cceedd"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tl_pull_refresh_layout_h">
+            <ProgressBar
+                android:visibility="invisible"
+                android:id="@+id/pb_refresh"
+                android:layout_width="20dp"
+                android:layout_height="20dp"/>
+            <TextView
+                android:id="@+id/tv_refresh"
+                android:layout_marginLeft="16dp"
+                android:textColor="@color/white"
+                android:text="下拉刷新"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tl.androidnativedemo">
+
+    <!-- 进入应用时需要请求是否具有相关出现，不给出响应权限应用应该不能出现奔溃的问题，只是本分功能不能正常使用 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+<!--    <uses-permission-->
+<!--        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"-->
+<!--        tools:ignore="ProtectedPermissions" />-->
+<!--    <uses-permission-->
+<!--        android:name="android.permission.GET_TOP_ACTIVITY_INFO"-->
+<!--        tools:ignore="ProtectedPermissions" />-->
+    <!-- 开机自启动权限 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!--OpenGL版本在2.0以上-->
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+    <!--
+     android:persistent="true"  通过在AndroidManifest.xml中的application标签中加入android:persistent="true"属性
+    后的确就能够达到保证该应用程序所在进程不会被LMK杀死。但有个前提就是应用程序必须是系统应用，
+    也就是说应用程序不能采用通常的安装方式。必须将应用程序的apk包直接放到/system/app目录下。而且必须重启系统后才能生效。
+    -->
+    <application
+        android:name=".app.TestApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".navigation01.liaotian.LiaotianActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".navigation01.searchview.nestedview.NestedActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".navigation41.imgdivide.ImageDivideActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".navigation01.behavior.floataction.FloatActionActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".navigation71.check.OnKeyCheckActivity" />
+        <activity android:name=".navigation11.longpressd.LongPressedMoveActivity" />
+        <activity android:name=".navigation11.slidedelete.SlideDeleteActivity" />
+        <activity android:name=".navigation81.simplelabel.SimpleLabelActivity" />
+        <activity android:name=".navigation01.searchview.SearchViewActivity" />
+        <activity android:name=".navigation21.photoshow.PhotoShowActivity" />
+        <activity android:name=".navigation01.floatintop.FloatInTopActivity" />
+        <activity android:name=".navigation21.requestpremission.ContactsActivity" />
+        <activity android:name=".navigation21.jobservice.JobServiceActivity" />
+        <activity android:name=".navigation31.inputlimit.InputLimitActivity" />
+        <activity android:name=".navigation31.recyclereuse.RecyclerReuseActivity" />
+
+        <!--进行隐式传递URI时需要-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="@string/authorities"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!--
+        android:isolatedProcess="true" 服务运行在独立的进程,不允许调用getService，没有权限
+        android:process=":ServiceProcess" 指定服务的进程，前缀是包名，如果使用.的话，就没有前缀包名了
+        若为进程指定了进程名，那么他将不能与主进程共享变量，但是可以使用getService
+        -->
+        <service
+            android:name=".service.StayAlwaysService"
+            android:process=":ServiceProcess"></service>
+
+        <!-- 5.0以后才有，他也不能实现服务的永驻 -->
+        <service
+            android:name=".service.MyJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":JobProcess" />
+
+        <!-- 如果组件位于不同的进程，static变量是不能与主进程共享的 -->
+        <service
+            android:name=".service.bindservice.BindStartService"
+            android:process=":BindService" />
+
+        <!-- 以下广播在应用被强制关闭的情况下，应用会被添加一个新的标志位，导致应用强制退出后无法收到系统修改时间的广播 -->
+        <receiver android:name=".broadcastreceiver.SystemTimeChangeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcastreceiver.SystemDateChangeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 该广播也被系统修改成无效，需要系统授权才可以，并且不一定可以 -->
+        <receiver android:name=".broadcastreceiver.AutoStartReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".navigation31.parandchild.ParentAndChildActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".navigation31.viewanim.ViewAnimActivity" />
+        <activity android:name=".navigation01.selflayout.SelfLayoutActivity" />
+        <activity android:name=".navigation01.useapi.UseApiActivity" />
+        <activity android:name=".navigation01.behavior.BehaviorActivity" />
+        <activity android:name=".navigation01.behavior.bottomsheet.BottomSheetActivity" />
+        <activity android:name=".navigation01.behavior.doublemove.BehaviorMoveActivity" />
+
+        <activity
+            android:name=".navigation01.behavior.likeuc.LikeUCHomeActivity"
+            android:theme="@style/AppTheme.FullScreen" />
+
+        <activity android:name=".navigation01.behavior.test.TestFunCallActivity" />
+        <activity
+            android:name=".navigation01.behavior.pullrefresh.PullRefreshActivity"
+            android:theme="@style/AppTheme.TranslucentStatus" />
+
+        <activity android:name=".navigation71.pullrefresh.TLPullRefActivity" />
+        <activity android:name=".navigation61.marktext.MarkTextActivity" />
+        <activity android:name=".navigation81.realm.RealmTestActivity" />
+
+        <activity android:name=".navigation61.hideintent.HideIntentActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="aaa.bbb.ccc" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".navigation41.imagescale.ImageScaleActivity" />
+        <activity android:name=".navigation41.mntimage.MntImageActivity" />
+        <activity android:name=".navigation41.paintshade.PaintShadeActivity" />
+
+        <activity
+            android:name=".navigation01.behavior.dialog.DialogActivity"
+            android:theme="@style/AppTheme.TranslucentStatus" />
+
+        <activity android:name=".navigation01.bsr.BeiSaiErActivity" />
+        <activity android:name=".navigation11.gridrecycler.GridRecyclerActivity" />
+
+        <!--android:exported="true"能让Activity直接运行，变成应用首页-->
+        <activity
+            android:name=".navigation01.bsr.element.ElementAddShopActivity"
+            android:exported="true" />
+        <activity android:name=".navigation01.bsr.flowwater.PathFlowWaterActivity" />
+        <activity android:name=".navigation61.callfun.CallNotForeFunActivity" />
+        <activity android:name=".navigation71.tiaoxingtu.TiaoXingTuActivity" />
+        <activity android:name=".navigation71.shanxing.ShanXingRatioActivity" />
+        <activity android:name=".navigation71.menu.ShanXingMenuActivity" />
+        <activity android:name=".navigation01.gaussblur.GaussianBlurImageActivity" />
+        <activity android:name=".navigation01.gaussblur.GaussianBlurNoImageActivity" />
+        <activity android:name=".navigation01.gaussblur.GaussianBlurActivity" />
+        <activity android:name=".navigation71.shanxingpro.ShanXingProgressActivity" />
+        <activity android:name=".navigation71.shanxingpro.NewActivity" />
+        <activity android:name=".navigation31.transition.ActivityViewTransition" />
+        <activity android:name=".navigation01.bsr.bubble.BubbleActivity" />
+        <activity android:name=".navigation21.rvpage.RVPagingActivity" />
+        <activity android:name=".navigation01.bsr.waveview.WaveViewActivity" />
+        <activity android:name=".navigation01.bsr.cyclebubblewave.CycleBubbleWaveActivity" />
+        <activity android:name=".navigation31.transition.ActivityTransition" />
+        <activity android:name=".navigation22.pop.PopWindowActivity" />
+        <activity android:name=".navigation22.move.PopMoveActivity" />
+
+        <activity android:name=".navigation72.procicle.FindProCicleActivity"
+            android:theme="@style/AppTheme.FullScreen"
+            />
+
+        <activity android:name=".navigationG.jinzita.JinZiTaPukeActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.FullScreen"/>
+
+        <activity android:name=".navigation42.draw.OpenGLDrawActivity" />
+
+        <activity android:name=".navigation71.autoR.AutoRefreshActivity" />
+
+        <activity android:name=".navigation01.behavior.titlebar.TitleBarActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".navigation71.index.IndexViewActivity" />
+        <activity android:name=".navigation61.menulistener.MenuListenerActivity" />
+    </application>
+
+</manifest>

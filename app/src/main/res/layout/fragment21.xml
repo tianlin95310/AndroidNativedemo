@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        style="@style/AppTheme.ItemLinearLayout">
+        <Button
+            android:id="@+id/bt_new_take_photo"
+            android:text="测试拍照 7.0"
+            android:background="@drawable/ripple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/bt_request_p"
+            android:text="测试权限的临时请求 6.0"
+            android:background="@drawable/ripple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/bt_job_service"
+            android:text="测试用JobService实现永驻服务"
+            android:background="@drawable/ripple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/bt_notification"
+            android:text="8.0的通知管理器"
+            android:background="@drawable/ripple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/bt_4"
+            android:text="悬浮通知"
+            android:background="@drawable/ripple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/bt_5"
+            android:text="锁屏通知"
+            android:background="@drawable/ripple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/bt_6"
+            android:text="Android官方架构paging"
+            android:background="@drawable/ripple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</LinearLayout>

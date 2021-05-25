@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="center_horizontal|bottom"
+    android:layout_height="match_parent">
+
+    <com.tl.androidnativedemo.navigation71.shanxingpro.TLShanXingRatioView2
+        android:id="@+id/tl_shanxing"
+        android:elevation="4dp"
+        android:layout_width="200dp"
+        android:transitionName="test"
+        android:layout_height="200dp"/>
+
+</LinearLayout>

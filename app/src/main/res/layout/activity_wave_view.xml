@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent">
+
+    <com.tl.androidnativedemo.navigation01.bsr.waveview.WaveView
+        android:id="@+id/wv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        >
+    </com.tl.androidnativedemo.navigation01.bsr.waveview.WaveView>
+
+    <SeekBar
+        android:layout_marginTop="32dp"
+        android:min="0"
+        android:max="100"
+        android:id="@+id/sb_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <SeekBar
+        android:layout_marginTop="32dp"
+        android:min="20"
+        android:max="50"
+        android:id="@+id/sb_amplitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

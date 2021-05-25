@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/bt_input_limit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="测试输入框的限制" />
+
+            <Button
+                android:id="@+id/bt_recycler_reuse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="测试RecyclerView的复用" />
+
+            <Button
+                android:id="@+id/bt_parent_child"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="子空间与父控件的点击问题" />
+
+            <Button
+                android:id="@+id/bt_view_anim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="控件的动画" />
+
+            <Button
+                android:id="@+id/bt_view_anim_createCircularReveal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ViewAnimationUtils.createCircularReveal动画" />
+
+            <Button
+                android:id="@+id/bt_view_start_and_finish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ViewAnimationUtils.createCircularReveal动画" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bt_view_anim_trans1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_gravity="right|bottom"
+        android:transitionName="bt_view_anim_trans1" />
+
+
+</RelativeLayout>
