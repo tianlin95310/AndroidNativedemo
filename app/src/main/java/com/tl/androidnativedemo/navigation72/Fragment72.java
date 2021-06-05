@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,8 +27,6 @@ import butterknife.Unbinder;
 public class Fragment72 extends Fragment {
     @BindView(R.id.button1)
     Button button1;
-    @BindView(R.id.textView2)
-    TextView textView2;
     Unbinder unbinder;
 
     @Nullable
@@ -52,7 +49,4 @@ public class Fragment72 extends Fragment {
         startActivity(intent);
     }
 
-    @OnClick(R.id.textView2)
-    public void onTextView2Clicked() {
-    }
 }

@@ -8,4 +8,5 @@
     <dimen name="ll_refresh_h">96dp</dimen>
     <dimen name="collapsed_h">300dp</dimen>
     <dimen name="tl_pull_refresh_layout_h">128dp</dimen>
+    <dimen name="pop_win_w">200dp</dimen>
 </resources>

@@ -47,14 +47,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <Button
-                    android:textSize="12sp"
-                    android:id="@+id/f01_fab6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="通过事件的分发实现列表联动（类似CoordinatorLayout的思想）"
-                    />
-
-                <Button
                     android:id="@+id/f01_fab7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

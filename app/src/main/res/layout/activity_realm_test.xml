@@ -7,7 +7,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:background="@android:color/holo_blue_bright"
         android:orientation="vertical">
 
@@ -35,7 +34,7 @@
                 android:id="@+id/io_thread_read"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="开启字线程不断读取"
+                android:text="开启子线程不断读取"
                 android:textSize="12sp"/>
 
             <Button
@@ -67,21 +66,6 @@
                 android:layout_height="wrap_content"
                 android:text="测试非copy对象的valid(null)"
                 android:textSize="12sp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/read_pro_data"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="读取61独立进程的服务保存的数据"/>
-
         </LinearLayout>
 
         <LinearLayout

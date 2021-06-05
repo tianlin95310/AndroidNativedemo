@@ -36,8 +36,6 @@ public class RealmTestActivity extends BaseActivity
     Button testNotCopy;
     @BindView(R.id.test_not_copy2)
     Button testNotCopy2;
-    @BindView(R.id.read_pro_data)
-    Button readProData;
     @BindView(R.id.bt_diff_thread_async)
     Button btDiffThreadAsync;
 
@@ -64,17 +62,6 @@ public class RealmTestActivity extends BaseActivity
     public void initView()
     {
 
-    }
-
-    @OnClick(R.id.read_pro_data)
-    public void read_pro_data()
-    {
-//        Realm realm = Realm.getDefaultInstance();
-//        RealmResults<DiffProgressReadAndWrite> database = realm.where(DiffProgressReadAndWrite.class).findAll();
-//
-//        List<DiffProgressReadAndWrite> copy = realm.copyFromRealm(database);
-//
-//        Log.d("my", "read_pro_data copy = " + copy.toString());
     }
 
     @OnClick(R.id.io_thread_read_once)

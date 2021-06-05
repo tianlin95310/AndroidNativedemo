@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.tl.androidnativedemo.R;
+import com.tl.androidnativedemo.navigationG.fivecheese.view.MenuActivity;
 import com.tl.androidnativedemo.navigationG.jinzita.JinZiTaPukeActivity;
 
 import butterknife.BindView;
@@ -46,6 +47,12 @@ public class FragmentG extends Fragment {
     @OnClick(R.id.jinzita)
     public void onViewClicked() {
         Intent intent = new Intent(getContext(), JinZiTaPukeActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.gobang)
+    public void gobang() {
+        Intent intent = new Intent(getContext(), MenuActivity.class);
         startActivity(intent);
     }
 }

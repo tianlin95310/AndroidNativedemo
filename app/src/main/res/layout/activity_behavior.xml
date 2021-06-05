@@ -10,13 +10,6 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/bt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Coordinator方法调用测试"
-            />
-
-        <Button
             android:id="@+id/bt_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

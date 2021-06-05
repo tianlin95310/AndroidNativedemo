@@ -92,15 +92,9 @@ public class Fragment21 extends Fragment {
                 SimpleDateFormat simple = new SimpleDateFormat("yyyyMMdd-HHmmss");
                 // 构建文件名
                 String fileName = "IMAGE" + simple.format(new Date());
-                String imgDir = "Android/data/tl.com.testmaterialdesign/files/Pictures";
-                // 图片的相对目录
-                // 存贮卡目录
-                File root_dir = Environment.getExternalStorageDirectory().getAbsoluteFile();
-                Log.d("my", "root_dir = " + root_dir.getAbsolutePath());
-                // 图片的绝对目录
-                File img_dir = new File(root_dir, imgDir);
-
-                takePhoto(getActivity(), img_dir, fileName);
+//                String imgDir = "Android/data/tl.com.testmaterialdesign/files/Pictures";
+                File imgDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_DCIM).getAbsoluteFile();
+                takePhoto(getActivity(), imgDir, fileName);
                 break;
             case R.id.bt_request_p:
 

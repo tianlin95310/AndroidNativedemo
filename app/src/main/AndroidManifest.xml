@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 <!--    <uses-permission-->
 <!--        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"-->
 <!--        tools:ignore="ProtectedPermissions" />-->
@@ -123,7 +123,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name=".navigation31.viewanim.ViewAnimActivity" />
-        <activity android:name=".navigation01.selflayout.SelfLayoutActivity" />
         <activity android:name=".navigation01.useapi.UseApiActivity" />
         <activity android:name=".navigation01.behavior.BehaviorActivity" />
         <activity android:name=".navigation01.behavior.bottomsheet.BottomSheetActivity" />
@@ -133,7 +132,6 @@
             android:name=".navigation01.behavior.likeuc.LikeUCHomeActivity"
             android:theme="@style/AppTheme.FullScreen" />
 
-        <activity android:name=".navigation01.behavior.test.TestFunCallActivity" />
         <activity
             android:name=".navigation01.behavior.pullrefresh.PullRefreshActivity"
             android:theme="@style/AppTheme.TranslucentStatus" />
@@ -200,6 +198,20 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".navigation71.index.IndexViewActivity" />
         <activity android:name=".navigation61.menulistener.MenuListenerActivity" />
+
+        <activity android:name=".navigationG.fivecheese.view.MenuActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.FullScreen"/>
+
+        <activity android:name=".navigationG.fivecheese.view.robotfight.RobotFightActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.FullScreen"/>
+        <activity android:name=".navigationG.fivecheese.view.userfight.UserFightActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.FullScreen"/>
     </application>
 
 </manifest>

@@ -15,7 +15,6 @@ import com.tl.androidnativedemo.navigation01.behavior.doublemove.BehaviorMoveAct
 import com.tl.androidnativedemo.navigation01.behavior.floataction.FloatActionActivity;
 import com.tl.androidnativedemo.navigation01.behavior.likeuc.LikeUCHomeActivity;
 import com.tl.androidnativedemo.navigation01.behavior.pullrefresh.PullRefreshActivity;
-import com.tl.androidnativedemo.navigation01.behavior.test.TestFunCallActivity;
 import com.tl.androidnativedemo.navigation01.behavior.titlebar.TitleBarActivity;
 
 import butterknife.BindView;
@@ -39,8 +38,6 @@ public class BehaviorActivity extends BaseActivity {
     Button bt4;
     @BindView(R.id.bt_5)
     Button bt5;
-    @BindView(R.id.bt)
-    Button bt;
     @BindView(R.id.bt_7)
     Button bt7;
     @BindView(R.id.bt_8)
@@ -101,12 +98,6 @@ public class BehaviorActivity extends BaseActivity {
                 startActivity(intent);
                 break;
         }
-    }
-
-    @OnClick(R.id.bt)
-    public void bt() {
-        Intent intent = new Intent(this, TestFunCallActivity.class);
-        startActivity(intent);
     }
 
     @OnClick(R.id.bt_7)

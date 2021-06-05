@@ -57,6 +57,20 @@ public class MyLinearLayout extends LinearLayout
     protected void onFinishInflate()
     {
         super.onFinishInflate();
+
+    }
+
+    @Override
+    protected void onAttachedToWindow()
+    {
+        super.onAttachedToWindow();
+
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
+    {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int childCount = getChildCount();
 
         if (childCount == 2)
@@ -64,18 +78,6 @@ public class MyLinearLayout extends LinearLayout
             recyclerView1 = (RecyclerView) getChildAt(0);
             recyclerView2 = (RecyclerView) getChildAt(1);
         }
-    }
-
-    @Override
-    protected void onAttachedToWindow()
-    {
-        super.onAttachedToWindow();
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
-    {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     @Override

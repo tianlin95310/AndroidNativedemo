@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="#BF8754"
+    android:keepScreenOn="true">
+
+   <com.tl.androidnativedemo.navigationG.fivecheese.view.userfight.TLNetChessView
+       android:id="@+id/tl_chess_view"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
+
+   <RelativeLayout
+       android:id="@+id/tl_right"
+       android:padding="16dp"
+       android:orientation="vertical"
+       android:layout_weight="1"
+       android:layout_width="0dp"
+       android:layout_height="match_parent">
+       <ImageView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"/>
+
+      <LinearLayout
+          android:layout_alignParentTop="true"
+          android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+          <LinearLayout
+              android:background="@drawable/ripple1"
+              android:id="@+id/ll_back"
+              android:gravity="center"
+              android:layout_weight="1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+              <TextView
+                  android:gravity="center"
+                  android:text="返回"
+                  android:padding="8dp"
+                  android:layout_width="48dp"
+                  android:layout_height="48dp"/>
+          </LinearLayout>
+
+        <LinearLayout
+            android:background="@drawable/ripple1"
+            android:id="@+id/ll_reset"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+           <TextView
+               android:gravity="center"
+               android:text="重置"
+               android:padding="8dp"
+               android:layout_width="48dp"
+               android:layout_height="48dp"/>
+        </LinearLayout>
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:orientation="vertical"
+          android:background="#A0522D"
+          android:layout_centerVertical="true"
+          android:gravity="center"
+          android:layout_marginTop="40dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+              <TextView
+                  android:padding="10dp"
+                  android:layout_gravity="center_vertical"
+                  android:gravity="right"
+                  android:text="我的昵称→"
+                  android:layout_width="100dp"
+                  android:layout_height="wrap_content"/>
+              <TextView
+                  android:id="@+id/tv_current_user"
+                  android:padding="5dp"
+                  android:gravity="center"
+                  android:layout_gravity="center"
+                  android:text="用户"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"/>
+          </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <TextView
+                  android:padding="10dp"
+                  android:layout_gravity="center_vertical"
+                  android:gravity="right"
+                  android:text="当前谁下→"
+                  android:layout_width="100dp"
+                  android:layout_height="wrap_content"/>
+              <TextView
+                  android:textColor="#ffffff"
+                  android:id="@+id/tv_current_who"
+                  android:padding="5dp"
+                  android:gravity="center"
+                  android:layout_gravity="center"
+                  android:text="用户"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"/>
+          </LinearLayout>
+
+          <View
+              android:background="#FFFFFF"
+              android:layout_width="match_parent"
+              android:layout_height="2dp"/>
+          <LinearLayout
+              android:layout_marginTop="48dp"
+              android:id="@+id/rg_users"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+              <TextView
+                  android:padding="5dp"
+                  android:gravity="center"
+                  android:text="当前房间"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"/>
+              <TextView
+                  android:gravity="center"
+                  android:padding="5dp"
+                  android:id="@+id/tv_user1"
+                  android:text="等待用户登录。。。"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"/>
+              <TextView
+                  android:gravity="center"
+                  android:padding="5dp"
+                  android:id="@+id/tv_user2"
+                  android:text="等待用户登录。。。"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"/>
+          </LinearLayout>
+      </LinearLayout>
+   </RelativeLayout>
+</LinearLayout>

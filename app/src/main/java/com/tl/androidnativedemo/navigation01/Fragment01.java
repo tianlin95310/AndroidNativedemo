@@ -17,7 +17,6 @@ import com.tl.androidnativedemo.navigation01.floatintop.FloatInTopActivity;
 import com.tl.androidnativedemo.navigation01.gaussblur.GaussianBlurActivity;
 import com.tl.androidnativedemo.navigation01.liaotian.LiaotianActivity;
 import com.tl.androidnativedemo.navigation01.searchview.SearchViewActivity;
-import com.tl.androidnativedemo.navigation01.selflayout.SelfLayoutActivity;
 import com.tl.androidnativedemo.navigation01.useapi.UseApiActivity;
 
 import butterknife.BindView;
@@ -42,8 +41,6 @@ public class Fragment01 extends Fragment
     Button f01Fab3;
     @BindView(R.id.f01_fab5)
     Button f01Fab5;
-    @BindView(R.id.f01_fab6)
-    Button f01Fab6;
     @BindView(R.id.f01_fab7)
     Button f01Fab7;
     @BindView(R.id.f01_fab8)
@@ -85,7 +82,7 @@ public class Fragment01 extends Fragment
         startActivity(intent);
     }
 
-    @OnClick({R.id.f01_fab5, R.id.f01_fab6, R.id.f01_fab7})
+    @OnClick({R.id.f01_fab5, R.id.f01_fab7})
     public void secondGroup(View view)
     {
         Intent intent = null;
@@ -93,10 +90,6 @@ public class Fragment01 extends Fragment
         {
             case R.id.f01_fab5:
                 intent = new Intent(getActivity(), BehaviorActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.f01_fab6:
-                intent = new Intent(getActivity(), SelfLayoutActivity.class);
                 startActivity(intent);
                 break;
             case R.id.f01_fab7:
