@@ -16,6 +16,7 @@ import androidx.annotation.RequiresApi;
 import com.tl.androidnativedemo.navigationG.fivecheese.model.DownInfoVo;
 import com.tl.androidnativedemo.navigationG.fivecheese.model.UserVo;
 import com.tl.androidnativedemo.navigationG.fivecheese.utils.CheckWinnerUtils;
+import com.tl.androidnativedemo.utils.display.DensityUtils;
 import com.tl.androidnativedemo.utils.toast.ToastUtils;
 
 import java.util.List;
@@ -147,12 +148,15 @@ public class TLLocalChessView extends View
                 }
 
                 // 实际点坐标
-                float x = event.getRawX();
-                float y = event.getRawY();
+                float x = event.getX();
+                float y = event.getY();
+                Log.d("my", "x = " + x + ", y = " + y);
 
                 // 近似数组下标
                 float pointX = x * 1.0f / itemLength - 1;
                 float pointY = y * 1.0f / itemLength - 1;
+
+                Log.d("my", "pointX = " + pointX + ", pointY = " + pointY);
 
                 // 排除无效点
                 if (pointX + 0.5 < 0 || pointY + 0.5 < 0)

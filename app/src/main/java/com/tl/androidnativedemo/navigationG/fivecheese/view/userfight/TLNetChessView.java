@@ -151,8 +151,8 @@ public class TLNetChessView extends View
                 }
 
                 // 实际点坐标
-                float x = event.getRawX();
-                float y = event.getRawY();
+                float x = event.getX();
+                float y = event.getY();
 
                 // 近似数组下标
                 float pointX = x * 1.0f / itemLength - 1;

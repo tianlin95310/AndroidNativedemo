@@ -25,11 +25,12 @@ import com.tl.androidnativedemo.navigationG.fivecheese.utils.Utils;
 import com.tl.androidnativedemo.utils.toast.ToastUtils;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketAddress;
 import java.util.List;
 
-public class UserFightActivity extends AppCompatActivity implements TLNetChessView.OnWhoChangeListener, View.OnClickListener
-{
+public class UserFightActivity extends AppCompatActivity implements TLNetChessView.OnWhoChangeListener, View.OnClickListener {
     MyViewHolder myViewHolder;
 
     // 套接字
@@ -45,17 +46,13 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
     List<UserVo> userGroup;
 
     // 处理服务器返回的信息
-    Handler handler = new Handler()
-    {
+    Handler handler = new Handler() {
         @Override
-        public void handleMessage(Message msg)
-        {
-            if (msg.what == Constant.DOWN)
-            {
+        public void handleMessage(Message msg) {
+            if (msg.what == Constant.DOWN) {
                 DownInfoVo downInfoVo = (DownInfoVo) msg.obj;
                 myViewHolder.tl_chess_view.onRemoteChessDown(downInfoVo);
-            } else if (msg.what == Constant.LOGIN)
-            {
+            } else if (msg.what == Constant.LOGIN) {
                 UserResponse userResponse = (UserResponse) msg.obj;
 
                 initUserAndWhoFirst(userResponse);
@@ -64,23 +61,18 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
         }
     };
 
-    private void initUserAndWhoFirst(UserResponse userResponse)
-    {
+    private void initUserAndWhoFirst(UserResponse userResponse) {
         myViewHolder.tv_current_user.setText(currentUser.username);
 
-        if(userResponse.whoFirst == -1)
-        {
+        if (userResponse.whoFirst == -1) {
             ToastUtils.show(this, "当前只有一个用户，请等待其他用户接入");
         }
 
         List<UserVo> userVoList = userResponse.list;
 
-        if(userVoList.size() == 1)
-        {
+        if (userVoList.size() == 1) {
             myViewHolder.tv_user1.setText(userVoList.get(0).username);
-        }
-        else if(userVoList.size() == 2)
-        {
+        } else if (userVoList.size() == 2) {
             ToastUtils.show(this, "房间里已经有两个用户了，可以开始游戏了");
             myViewHolder.tv_user1.setText(userVoList.get(0).username);
             myViewHolder.tv_user2.setText(userVoList.get(1).username);
@@ -97,12 +89,9 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
             int position = userResponse.list.indexOf(currentUser);
             myViewHolder.tl_chess_view.setCurrentUserPosition(position);
 
-            if(position == 0)
-            {
+            if (position == 0) {
                 myViewHolder.tl_chess_view.setOtherUserPosition(1);
-            }
-            else if(position == 1)
-            {
+            } else if (position == 1) {
                 myViewHolder.tl_chess_view.setOtherUserPosition(0);
             }
         }
@@ -111,8 +100,7 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_fight);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -125,42 +113,33 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
 
     }
 
-    private void ready()
-    {
-        createDialog("立即进入房间？", new View.OnClickListener()
-        {
+    private void ready() {
+        createDialog("立即进入房间？", new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                if(alertDialog != null)
+            public void onClick(View v) {
+                if (alertDialog != null)
                     alertDialog.dismiss();
                 // 开始联机
                 beginNet();
             }
-        }, new View.OnClickListener()
-        {
+        }, new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                if(alertDialog != null)
+            public void onClick(View v) {
+                if (alertDialog != null)
                     alertDialog.dismiss();
             }
         });
     }
 
-    private void beginNet()
-    {
-        ThreadManager.execute(new Runnable()
-        {
+    private void beginNet() {
+        ThreadManager.execute(new Runnable() {
             @Override
-            public void run()
-            {
-                try
-                {
-                    socket = new Socket(Constant.SERVICE_IP, Constant.PORT);
-
-                    if (socket != null)
-                    {
+            public void run() {
+                try {
+                    socket = new Socket();
+                    SocketAddress address = new InetSocketAddress(Constant.SERVICE_IP, Constant.PORT);
+                    socket.connect(address, 10 * 1000);
+                    if (socket != null) {
                         Log.d("my", "成功连接到服务器");
                         currentUser = Utils.makeAUser();
                         BaseRequest<UserVo> request = new BaseRequest<>();
@@ -169,13 +148,10 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
                         Write.write(socket, request);
 
                         ThreadManager.execute(new Read(socket, handler));
-                    }
-                    else
-                    {
+                    } else {
                         Log.d("my", "服务器无响应");
                     }
-                } catch (IOException e)
-                {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -184,22 +160,18 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
     }
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         super.onDestroy();
         if (socket != null)
-            try
-            {
+            try {
                 socket.close();
 
-            } catch (IOException e)
-            {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
     }
 
-    class MyViewHolder
-    {
+    class MyViewHolder {
         public LinearLayout ll_reset;
         public LinearLayout ll_back;
         public TLNetChessView tl_chess_view;
@@ -211,8 +183,7 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
         TextView tv_user2;
     }
 
-    private void initMyViewHolder()
-    {
+    private void initMyViewHolder() {
         myViewHolder = new MyViewHolder();
         myViewHolder.ll_reset = (LinearLayout) findViewById(R.id.ll_reset);
         myViewHolder.ll_back = (LinearLayout) findViewById(R.id.ll_back);
@@ -228,21 +199,16 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
     }
 
     @Override
-    public void onLocalChessDown(final DownInfoVo down)
-    {
-        ThreadManager.execute(new Runnable()
-        {
+    public void onLocalChessDown(final DownInfoVo down) {
+        ThreadManager.execute(new Runnable() {
             @Override
-            public void run()
-            {
-                try
-                {
+            public void run() {
+                try {
                     BaseRequest<DownInfoVo> request = new BaseRequest<>();
                     request.what = Constant.DOWN;
                     request.content = down;
                     Write.write(socket, request);
-                } catch (IOException e)
-                {
+                } catch (IOException e) {
                     Log.d("my", "流读写异常");
                     e.printStackTrace();
                 }
@@ -251,35 +217,28 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
     }
 
     @Override
-    public void onWho(String who)
-    {
+    public void onWho(String who) {
         myViewHolder.tv_current_who.setText(who);
     }
 
     @Override
-    public void onWin(String who)
-    {
-        createDialog("恭喜" + who + "获取胜利", new View.OnClickListener()
-        {
+    public void onWin(String who) {
+        createDialog("恭喜" + who + "获取胜利", new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                if(alertDialog != null)
+            public void onClick(View v) {
+                if (alertDialog != null)
                     alertDialog.dismiss();
             }
-        }, new View.OnClickListener()
-        {
+        }, new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                if(alertDialog != null)
+            public void onClick(View v) {
+                if (alertDialog != null)
                     alertDialog.dismiss();
             }
         });
     }
 
-    private void createDialog(String msg, View.OnClickListener onOk, View.OnClickListener onCancel)
-    {
+    private void createDialog(String msg, View.OnClickListener onOk, View.OnClickListener onCancel) {
         View view = getLayoutInflater().inflate(R.layout.pop_win, null);
         TextView tv_msg = (TextView) view.findViewById(R.id.tv_msg);
         TextView tv_confirm = (TextView) view.findViewById(R.id.tv_confirm);
@@ -300,11 +259,10 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
         layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
         alertDialog.getWindow().setAttributes(layoutParams);
     }
+
     @Override
-    public void onClick(View v)
-    {
-        switch (v.getId())
-        {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.ll_reset:
                 break;
             case R.id.ll_back:

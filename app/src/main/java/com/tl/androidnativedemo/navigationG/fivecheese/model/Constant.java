@@ -8,7 +8,7 @@ package com.tl.androidnativedemo.navigationG.fivecheese.model;
 
 public class Constant
 {
-    public static final String SERVICE_IP = "27.23.195.103";
+    public static final String SERVICE_IP = "192.168.1.2";
     public static final int PORT = 10005;
     public static final int LOGIN = 1;
     public static final int DOWN = 2;

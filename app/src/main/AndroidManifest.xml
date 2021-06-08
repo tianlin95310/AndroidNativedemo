@@ -200,13 +200,9 @@
         <activity android:name=".navigation61.menulistener.MenuListenerActivity" />
 
         <activity android:name=".navigationG.fivecheese.view.MenuActivity"
-            android:configChanges="orientation|screenSize"
-            android:screenOrientation="landscape"
             android:theme="@style/AppTheme.FullScreen"/>
 
         <activity android:name=".navigationG.fivecheese.view.robotfight.RobotFightActivity"
-            android:configChanges="orientation|screenSize"
-            android:screenOrientation="landscape"
             android:theme="@style/AppTheme.FullScreen"/>
         <activity android:name=".navigationG.fivecheese.view.userfight.UserFightActivity"
             android:configChanges="orientation|screenSize"
