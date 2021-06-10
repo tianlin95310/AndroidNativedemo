@@ -15,17 +15,16 @@ public class Utils
 {
 
     final static String[] names = new String[]{
-            "执剑清平", "浣花洗剑", "少年游", "满江红",
-            "定风坡", "人间道", "镜影命缘", "刀间鼓", "碧山行"
+            "执剑清平", "浣花洗剑",
+            "镜影命缘", "刀间鼓", "碧山行"
     };
     final static String[] genders = new String[]{"male", "female"};
     public static UserVo makeAUser()
     {
         Random random = new Random(System.currentTimeMillis());
-
         UserVo userVo = new UserVo();
         userVo.id = getNumber(5);
-        userVo.username = names[random.nextInt(names.length)];
+        userVo.username = names[random.nextInt(names.length)] + random.nextInt(8999) + 1000;
         userVo.gender = genders[random.nextInt(genders.length)];
         return userVo;
     }

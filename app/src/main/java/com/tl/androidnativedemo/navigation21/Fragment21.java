@@ -26,6 +26,7 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
+import com.tl.androidnativedemo.BuildConfig;
 import com.tl.androidnativedemo.R;
 import com.tl.androidnativedemo.navigation21.jobservice.JobServiceActivity;
 import com.tl.androidnativedemo.navigation21.photoshow.PhotoShowActivity;
@@ -142,7 +143,7 @@ public class Fragment21 extends Fragment {
             startActivityForResult(intent, 1);
         } else {
             // content开头的
-            Uri uri = FileProvider.getUriForFile(context, context.getString(R.string.authorities), file);
+            Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
             // 让照相的activity具有该临时权限

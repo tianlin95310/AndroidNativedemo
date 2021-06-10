@@ -25,7 +25,6 @@ public class Write
 
         BaseRequest<UserVo> baseRequest = JSON.parseObject(json.replace("\n", ""), new TypeReference<BaseRequest<UserVo>>(){}.getType());
 
-
         OutputStream outputStream = socket.getOutputStream();
         // 添加结束标记
         outputStream.write((json + "\n").getBytes());

@@ -62,8 +62,6 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
     };
 
     private void initUserAndWhoFirst(UserResponse userResponse) {
-        myViewHolder.tv_current_user.setText(currentUser.username);
-
         if (userResponse.whoFirst == -1) {
             ToastUtils.show(this, "当前只有一个用户，请等待其他用户接入");
         }
@@ -138,7 +136,7 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
                 try {
                     socket = new Socket();
                     SocketAddress address = new InetSocketAddress(Constant.SERVICE_IP, Constant.PORT);
-                    socket.connect(address, 10 * 1000);
+                    socket.connect(address, 5 * 1000);
                     if (socket != null) {
                         Log.d("my", "成功连接到服务器");
                         currentUser = Utils.makeAUser();
@@ -175,10 +173,6 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
         public LinearLayout ll_reset;
         public LinearLayout ll_back;
         public TLNetChessView tl_chess_view;
-
-        TextView tv_current_who;
-        TextView tv_current_user;
-
         TextView tv_user1;
         TextView tv_user2;
     }
@@ -190,8 +184,6 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
         myViewHolder.tv_user1 = (TextView) findViewById(R.id.tv_user1);
         myViewHolder.tv_user2 = (TextView) findViewById(R.id.tv_user2);
         myViewHolder.tl_chess_view = (TLNetChessView) findViewById(R.id.tl_chess_view);
-        myViewHolder.tv_current_user = (TextView) findViewById(R.id.tv_current_user);
-        myViewHolder.tv_current_who = (TextView) findViewById(R.id.tv_current_who);
 
         myViewHolder.ll_reset.setOnClickListener(this);
         myViewHolder.ll_back.setOnClickListener(this);
@@ -218,7 +210,7 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
 
     @Override
     public void onWho(String who) {
-        myViewHolder.tv_current_who.setText(who);
+        Log.d("my", who);
     }
 
     @Override

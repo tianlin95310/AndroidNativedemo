@@ -26,54 +26,45 @@ import java.net.Socket;
  * QQ : 953108373
  */
 
-public class Read implements Runnable
-{
+public class Read implements Runnable {
     Socket socket;
 
     Handler handler;
 
-    public Read(Socket socket, Handler handler)
-    {
+    public Read(Socket socket, Handler handler) {
         this.socket = socket;
         this.handler = handler;
     }
 
     @Override
-    public void run()
-    {
-        try
-        {
+    public void run() {
+        try {
             InputStream inputStream = socket.getInputStream();
             BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(bufferedInputStream));
 
-            while (true && !socket.isClosed() && !socket.isInputShutdown())
-            {
+            while (true && !socket.isClosed() && !socket.isInputShutdown()) {
                 SystemClock.sleep(500);
 
                 String json = null;
 
-                while ((json = bufferedReader.readLine()) != null)
-                {
+                while ((json = bufferedReader.readLine()) != null) {
                     Log.d("my", "json = " + json);
-                    if (!TextUtils.isEmpty(json))
-                    {
+                    if (!TextUtils.isEmpty(json)) {
                         BaseResponse response = JSON.parseObject(json,
-                                new TypeReference<BaseResponse>()
-                                {
+                                new TypeReference<BaseResponse>() {
                                 }.getType());
 
-                        if(response.what == Constant.DOWN)
-                        {
-                            BaseResponse<DownInfoVo> baseResponse = JSON.parseObject(json, new TypeReference<BaseResponse<DownInfoVo>>(){}.getType());
+                        if (response.what == Constant.DOWN) {
+                            BaseResponse<DownInfoVo> baseResponse = JSON.parseObject(json, new TypeReference<BaseResponse<DownInfoVo>>() {
+                            }.getType());
                             Message message = Message.obtain();
                             message.what = 2;
                             message.obj = baseResponse.content;
                             handler.sendMessage(message);
-                        }
-                        else if(response.what == Constant.LOGIN)
-                        {
-                            BaseResponse<UserResponse> baseResponse = JSON.parseObject(json, new TypeReference<BaseResponse<UserResponse>>(){}.getType());
+                        } else if (response.what == Constant.LOGIN) {
+                            BaseResponse<UserResponse> baseResponse = JSON.parseObject(json, new TypeReference<BaseResponse<UserResponse>>() {
+                            }.getType());
 
                             Message message = Message.obtain();
                             message.what = 1;
@@ -88,8 +79,7 @@ public class Read implements Runnable
 
             }
 
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
             Log.d("my", "socket 被关闭");
             e.printStackTrace();
         }

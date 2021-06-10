@@ -15,6 +15,7 @@
 <!--        android:name="android.permission.GET_TOP_ACTIVITY_INFO"-->
 <!--        tools:ignore="ProtectedPermissions" />-->
     <!-- 开机自启动权限 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <!--OpenGL版本在2.0以上-->
@@ -27,8 +28,8 @@
     <application
         android:name=".app.TestApplication"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:supportsRtl="true"
+        android:label="@string/app_name"
         android:theme="@style/AppTheme">
 
         <activity
@@ -69,7 +70,7 @@
         <!--进行隐式传递URI时需要-->
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="@string/authorities"
+            android:authorities="${authorities}"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -201,12 +202,10 @@
 
         <activity android:name=".navigationG.fivecheese.view.MenuActivity"
             android:theme="@style/AppTheme.FullScreen"/>
-
         <activity android:name=".navigationG.fivecheese.view.robotfight.RobotFightActivity"
             android:theme="@style/AppTheme.FullScreen"/>
         <activity android:name=".navigationG.fivecheese.view.userfight.UserFightActivity"
             android:configChanges="orientation|screenSize"
-            android:screenOrientation="landscape"
             android:theme="@style/AppTheme.FullScreen"/>
     </application>
 
