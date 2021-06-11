@@ -7,6 +7,8 @@ import android.util.Log;
 
 import com.tl.androidnativedemo.MainActivity;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 
 /**
  * Created by tianlin on 2017/6/21.
@@ -27,7 +29,8 @@ public class AutoStartReceiver extends BroadcastReceiver
         if(Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction()))
         {
             Intent startIntent = new Intent(context, MainActivity.class);
-            context.startActivity(intent);
+            startIntent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(startIntent);
 
             Log.i("my", "AutoStartReceiver start MainActivity");
         }

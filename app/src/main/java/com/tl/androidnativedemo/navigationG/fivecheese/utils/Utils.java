@@ -14,17 +14,13 @@ import java.util.Random;
 public class Utils
 {
 
-    final static String[] names = new String[]{
-            "执剑清平", "浣花洗剑",
-            "镜影命缘", "刀间鼓", "碧山行"
-    };
     final static String[] genders = new String[]{"male", "female"};
     public static UserVo makeAUser()
     {
         Random random = new Random(System.currentTimeMillis());
         UserVo userVo = new UserVo();
-        userVo.id = getNumber(5);
-        userVo.username = names[random.nextInt(names.length)] + random.nextInt(8999) + 1000;
+        userVo.id = getNumber(3);
+        userVo.username = "U" + userVo.id;
         userVo.gender = genders[random.nextInt(genders.length)];
         return userVo;
     }

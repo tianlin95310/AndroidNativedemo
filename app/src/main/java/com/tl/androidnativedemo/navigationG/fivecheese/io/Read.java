@@ -49,7 +49,7 @@ public class Read implements Runnable {
                 String json = null;
 
                 while ((json = bufferedReader.readLine()) != null) {
-                    Log.d("my", "json = " + json);
+                    Log.d("my", "读取到的服务器数据json = " + json);
                     if (!TextUtils.isEmpty(json)) {
                         BaseResponse response = JSON.parseObject(json,
                                 new TypeReference<BaseResponse>() {

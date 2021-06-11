@@ -30,7 +30,7 @@ import java.net.Socket;
 import java.net.SocketAddress;
 import java.util.List;
 
-public class UserFightActivity extends AppCompatActivity implements TLNetChessView.OnWhoChangeListener, View.OnClickListener {
+public class UserFightActivity extends AppCompatActivity implements TLNetChessView.OnWhoChangeListener {
     MyViewHolder myViewHolder;
 
     // 套接字
@@ -42,9 +42,6 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
     // 当前用户
     UserVo currentUser;
 
-    // 当前房间内的所有用户
-    List<UserVo> userGroup;
-
     // 处理服务器返回的信息
     Handler handler = new Handler() {
         @Override
@@ -54,7 +51,6 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
                 myViewHolder.tl_chess_view.onRemoteChessDown(downInfoVo);
             } else if (msg.what == Constant.LOGIN) {
                 UserResponse userResponse = (UserResponse) msg.obj;
-
                 initUserAndWhoFirst(userResponse);
             }
 
@@ -69,24 +65,20 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
         List<UserVo> userVoList = userResponse.list;
 
         if (userVoList.size() == 1) {
-            myViewHolder.tv_user1.setText(userVoList.get(0).username);
+            // 只有自己登录进去了
+            myViewHolder.tl_chess_view.setUserGroup(userResponse.list);
+            myViewHolder.tl_chess_view.setMy(currentUser);
         } else if (userVoList.size() == 2) {
             ToastUtils.show(this, "房间里已经有两个用户了，可以开始游戏了");
-            myViewHolder.tv_user1.setText(userVoList.get(0).username);
-            myViewHolder.tv_user2.setText(userVoList.get(1).username);
-
             // 当前的所有用户
             myViewHolder.tl_chess_view.setUserGroup(userResponse.list);
-
             // 谁先下，当前是谁下
             myViewHolder.tl_chess_view.setWho(userResponse.whoFirst);
-
-            myViewHolder.tl_chess_view.updateWho();
-
+            // 当前的用户与在列表中的位置
+            myViewHolder.tl_chess_view.setMy(currentUser);
             // 当前用户在集合中的位置
             int position = userResponse.list.indexOf(currentUser);
             myViewHolder.tl_chess_view.setCurrentUserPosition(position);
-
             if (position == 0) {
                 myViewHolder.tl_chess_view.setOtherUserPosition(1);
             } else if (position == 1) {
@@ -170,23 +162,12 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
     }
 
     class MyViewHolder {
-        public LinearLayout ll_reset;
-        public LinearLayout ll_back;
         public TLNetChessView tl_chess_view;
-        TextView tv_user1;
-        TextView tv_user2;
     }
 
     private void initMyViewHolder() {
         myViewHolder = new MyViewHolder();
-        myViewHolder.ll_reset = (LinearLayout) findViewById(R.id.ll_reset);
-        myViewHolder.ll_back = (LinearLayout) findViewById(R.id.ll_back);
-        myViewHolder.tv_user1 = (TextView) findViewById(R.id.tv_user1);
-        myViewHolder.tv_user2 = (TextView) findViewById(R.id.tv_user2);
         myViewHolder.tl_chess_view = (TLNetChessView) findViewById(R.id.tl_chess_view);
-
-        myViewHolder.ll_reset.setOnClickListener(this);
-        myViewHolder.ll_back.setOnClickListener(this);
         myViewHolder.tl_chess_view.setOnWhoChangeListener(this);
     }
 
@@ -209,13 +190,8 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
     }
 
     @Override
-    public void onWho(String who) {
-        Log.d("my", who);
-    }
-
-    @Override
     public void onWin(String who) {
-        createDialog("恭喜" + who + "获取胜利", new View.OnClickListener() {
+        createDialog((currentUser.username.equals(who) ? "恭喜": "") + (currentUser.username.equals(who) ? "您" : who) + "获取胜利", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (alertDialog != null)
@@ -250,15 +226,5 @@ public class UserFightActivity extends AppCompatActivity implements TLNetChessVi
         layoutParams.width = (int) this.getResources().getDimension(R.dimen.pop_win_w);
         layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
         alertDialog.getWindow().setAttributes(layoutParams);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.ll_reset:
-                break;
-            case R.id.ll_back:
-                break;
-        }
     }
 }
