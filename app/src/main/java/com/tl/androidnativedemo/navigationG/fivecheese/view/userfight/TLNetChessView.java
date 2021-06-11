@@ -146,12 +146,12 @@ public class TLNetChessView extends View {
         } else if (userGroup.size() == 1) {
             String names = userGroup.get(0).username;
             str = "我是" + userGroup.get(currentUserPosition).username + "，我已经登录";
-            room = "当前房间内，【 " + names + " 】";
+            room = "当前房间内:【 " + names + " 】";
         } else if (userGroup.size() == 2){
             String names = userGroup.get(0).username + "， " + userGroup.get(1).username;;
             str = "我是" + userGroup.get(currentUserPosition).username + "，" +
                     "我是" + (currentUserPosition == 0 ? "黑棋" : "白旗");
-            room = "当前房间内，【 " + names + "】 " +
+            room = "当前房间内:【 " + names + " 】" +
                     "，现在轮到" + (userGroup.get(who).username.equals(my.username) ? "我" : userGroup.get(who).username) + "下子";
             if (currentUserPosition == 0) {
                 tipPaint.setColor(Color.BLACK);
@@ -165,7 +165,7 @@ public class TLNetChessView extends View {
         tipPaint.getTextBounds(str, 0, str.length(), textBound);
         tipPaint.setColor(Color.WHITE);
         canvas.drawText(str, itemLength, itemLength - textBound.height(), tipPaint);
-        canvas.drawText(room, itemLength, cheeseH - textBound.height(), tipPaint);
+        canvas.drawText(room, itemLength + textBound.width() + itemLength, itemLength - textBound.height(), tipPaint);
     }
 
     @Override
