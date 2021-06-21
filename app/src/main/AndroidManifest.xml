@@ -15,7 +15,10 @@
 <!--        android:name="android.permission.GET_TOP_ACTIVITY_INFO"-->
 <!--        tools:ignore="ProtectedPermissions" />-->
     <!-- 开机自启动权限 -->
-    <uses-permission android:name="android.permission.CAMERA"/>
+
+<!--    该权限声明了但没有获取到用户给权限时在拍照时会报权限错误-->
+<!--    <uses-permission android:name="android.permission.CAMERA"/>-->
+
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <!--OpenGL版本在2.0以上-->
@@ -70,7 +73,7 @@
         <!--进行隐式传递URI时需要-->
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="${authorities}"
+            android:authorities="${applicationId}"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -144,7 +147,7 @@
         <activity android:name=".navigation61.hideintent.HideIntentActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-                <action android:name="aaa.bbb.ccc" />
+                <action android:name="aaa.bbb.ccc.${actionName}" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

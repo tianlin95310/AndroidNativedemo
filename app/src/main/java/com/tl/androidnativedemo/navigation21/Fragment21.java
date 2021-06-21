@@ -1,5 +1,6 @@
 package com.tl.androidnativedemo.navigation21;
 
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -23,6 +24,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
@@ -93,7 +95,8 @@ public class Fragment21 extends Fragment {
                 SimpleDateFormat simple = new SimpleDateFormat("yyyyMMdd-HHmmss");
                 // 构建文件名
                 String fileName = "IMAGE" + simple.format(new Date());
-//                String imgDir = "Android/data/tl.com.testmaterialdesign/files/Pictures";
+
+                // 通过此种方式获取到的村区路径不需要存贮权限
                 File imgDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_DCIM).getAbsoluteFile();
                 takePhoto(getActivity(), imgDir, fileName);
                 break;

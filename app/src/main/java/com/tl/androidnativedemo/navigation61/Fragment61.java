@@ -15,6 +15,7 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.tl.androidnativedemo.BuildConfig;
 import com.tl.androidnativedemo.R;
 import com.tl.androidnativedemo.navigation61.callfun.CallNotForeFunActivity;
 import com.tl.androidnativedemo.navigation61.marktext.MarkTextActivity;
@@ -97,6 +98,9 @@ public class Fragment61 extends Fragment
     @OnClick(R.id.bt_hide_intent)
     public void bt_hide_intent()
     {
+        Intent intent = new Intent();
+        intent.setAction("aaa.bbb.ccc." + BuildConfig.FLAVOR);
+        startActivity(intent);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

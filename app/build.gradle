@@ -31,14 +31,14 @@ android {
     flavorDimensions 'learn'
     productFlavors {
         dev {
-            manifestPlaceholders authorities: 'com.tl.androidnativedemo.dev'
             dimension 'learn'
+            manifestPlaceholders actionName: 'dev'
             applicationIdSuffix '.dev'
             resValue "string", "app_name", "Demo Dev"
         }
         sit {
-            manifestPlaceholders authorities: 'com.tl.androidnativedemo.sit'
             dimension 'learn'
+            manifestPlaceholders actionName: 'sit'
             applicationIdSuffix '.sit'
             resValue "string", "app_name", "Demo Sit"
         }
